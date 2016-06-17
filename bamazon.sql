@@ -5,7 +5,6 @@ use bamazon_db;
 create table  Products (
 
 itemID INT NOT NULL AUTO_INCREMENT,
--- itemID varchar(50) not null,
 ProductName varchar(50) not null,
 DepartmentName varchar(50) not null,
 Price decimal(6) not null,
