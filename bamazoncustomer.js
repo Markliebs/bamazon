@@ -29,4 +29,21 @@ connection.query('SELECT * FROM Products', function (err, res) {
         console.log(res[i].itemID + " * " + res[i].ProductName + " | " + res[i].DepartmentName + " | " + res[i].Price + " | " + res[i].StockQuantity);
     }
     console.log("-----------------------------------");
-})
+
+    inquirer.prompt([
+    {
+        type: 'input',
+        name: 'askID',
+        message: 'What is the Item ID of the product you would like to purchase?',
+    } , {
+
+     type: 'input',
+        name: 'askID',
+        message: 'How many of that item would you like?',
+
+    }]);
+    console.log("Thank you, please hold while we retrieve that information.")
+    
+    
+});
+
