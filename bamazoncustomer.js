@@ -42,8 +42,5 @@ connection.query('SELECT * FROM Products', function (err, res) {
         message: 'How many of that item would you like?',
 
     }]);
-    console.log("Thank you, please hold while we retrieve that information.")
-    
-    
 });
 
