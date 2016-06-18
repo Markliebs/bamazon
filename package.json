@@ -1,0 +1,28 @@
+{
+  "name": "bamazon",
+  "version": "1.0.0",
+  "description": "BAM!",
+  "main": "bamazoncustomer.js",
+  "dependencies": {
+    "inquirer": "^1.0.3",
+    "mysql": "^2.11.1",
+    "util": "^0.10.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Markliebs/bamazon.git"
+  },
+  "keywords": [
+    "BAM"
+  ],
+  "author": "Bambi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Markliebs/bamazon/issues"
+  },
+  "homepage": "https://github.com/Markliebs/bamazon#readme"
+}

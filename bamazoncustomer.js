@@ -25,10 +25,10 @@ connection.connect(function (err) {
 
 connection.query('SELECT * FROM Products', function (err, res) {
     if (err) throw err;
-    console.log("ID * Item Name | Department | Cost | Amount in Stock");
+    console.dir("ID * Item Name | Department | Cost | Amount in Stock", {colors: true});
     for (var i = 0; i < res.length; i++) {
         utils.inspect.styles.string = 'cyan';
-        console.log(res[i].itemID + " * " + res[i].ProductName + " | " + res[i].DepartmentName + " | " + res[i].Price + " | " + res[i].StockQuantity);
+        console.dir(res[i].itemID + " * " + res[i].ProductName + " | " + res[i].DepartmentName + " | " + res[i].Price + " | " + res[i].StockQuantity, {colors: true});
         productList.push(res[i].ProductName);
     }
     console.log("-------------------------------------------------------------");
@@ -56,7 +56,11 @@ connection.query('SELECT * FROM Products', function (err, res) {
     ];
 
     inquirer.prompt(questions).then(function (answers) {
+        utils.inspect.styles.string = 'blue';
+        console.dir("Excellent Choice!", {colors: true});
+        if (questions[1].validate.answers >= 1) {
         console.log("test");
+        };
     });
 });
 
