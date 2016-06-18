@@ -33,7 +33,7 @@ connection.query('SELECT * FROM Products', function (err, res) {
     }
     console.log("-------------------------------------------------------------");
 
-    inquirer.prompt([
+    var questions = [
         {
             type: 'list',
             name: 'itemList',
@@ -53,8 +53,10 @@ connection.query('SELECT * FROM Products', function (err, res) {
             }
 
         }
-    ])
-    .then(function(user){;
+    ];
+
+    inquirer.prompt(questions).then(function (answers) {
+        console.log("test");
+    });
 });
-}); 
 

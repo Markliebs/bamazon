@@ -58,4 +58,5 @@ connection.query('SELECT * FROM Products', function (err, res) {
     inquirer.prompt(questions).then(function (answers) {
         console.log("test");
     });
+});
 
