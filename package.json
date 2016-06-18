@@ -25,4 +25,7 @@
     "url": "https://github.com/Markliebs/bamazon/issues"
   },
   "homepage": "https://github.com/Markliebs/bamazon#readme"
+},
+"engines": {
+  "node":"4.4.5"
 }

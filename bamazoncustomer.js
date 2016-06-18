@@ -58,7 +58,7 @@ connection.query('SELECT * FROM Products', function (err, res) {
     inquirer.prompt(questions).then(function (answers) {
         utils.inspect.styles.string = 'blue';
         console.dir("Excellent Choice!", {colors: true});
-        if (questions[1].validate.answers >= 1) {
+        if (questions[1].answers >= 1) {
         console.log("test");
         };
     });
