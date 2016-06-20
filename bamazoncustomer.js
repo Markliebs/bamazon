@@ -58,11 +58,35 @@ connection.query('SELECT * FROM Products', function (err, res) {
     inquirer.prompt(questions).then(function (answers) {
         utils.inspect.styles.string = 'blue';
         console.dir("Excellent Choice!", { colors: true });
-        if (answers.howMany >= 1) {
-            console.log("Please hold while we check our inventory.");
+
+
+        if (answers.howMany > (res[1].StockQuantity - answers.howMany)) {
+            console.log('Insufficient quantity.  Please select a smaller quantity')
+            //Starts over so user can make another purchase
+            purchase();
         } else {
-            console.log("We're sorry but that item is sold out.")
-        };
+            //Displays what was purchased, how many, and the cost
+            console.log('You have ordered ' + answers.howMany + ' ' + answers.itemList + '(s) at $' + res[0].Price + '\n');
+            //Shows total amount of purchase
+            console.log('Your total cost is $' + (res[0].Price * answers.itemList) + '\n');
+            //updates databases
+            connection.query('UPDATE products SET StockQuantity = "' + (res[0].StockQuantity - answers.amount) + '" WHERE ProductName = "' + user.product + '"');
+
+        }
     });
 });
+
+
+
+
+
+
+
+        // if (answers.howMany >= 1) {
+        //     console.log("Please hold while we check our inventory.");
+//         } else {
+//             console.log("We're sorry but that item is sold out.")
+//         };
+//     });
+// });
 
