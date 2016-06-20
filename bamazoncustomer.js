@@ -68,25 +68,11 @@ connection.query('SELECT * FROM Products', function (err, res) {
             //Displays what was purchased, how many, and the cost
             console.log('You have ordered ' + answers.howMany + ' ' + answers.itemList + '(s) at $' + res[0].Price + '\n');
             //Shows total amount of purchase
-            console.log('Your total cost is $' + (res[0].Price * answers.itemList) + '\n');
+            // console.log('Your total cost is $' + (res[0].itemList * res[1].howMany));
             //updates databases
-            connection.query('UPDATE products SET StockQuantity = "' + (res[0].StockQuantity - answers.amount) + '" WHERE ProductName = "' + user.product + '"');
+            connection.query('UPDATE products SET StockQuantity = "' + (res[0].StockQuantity - res[1].howMany) + '" WHERE ProductName = "' + answers.itemList + '"');
 
         }
     });
 });
-
-
-
-
-
-
-
-        // if (answers.howMany >= 1) {
-        //     console.log("Please hold while we check our inventory.");
-//         } else {
-//             console.log("We're sorry but that item is sold out.")
-//         };
-//     });
-// });
 
