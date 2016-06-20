@@ -62,15 +62,16 @@ connection.query('SELECT * FROM Products', function (err, res) {
 
         if (answers.howMany > (res[1].StockQuantity - answers.howMany)) {
             console.log('Insufficient quantity.  Please select a smaller quantity')
-            //Starts over so user can make another purchase
-            purchase();
         } else {
+            //  console.log(res[productList.indexOf(answers.itemList)]);
+            //  console.log(productList.indexOf(answers.itemList));
             //Displays what was purchased, how many, and the cost
-            console.log('You have ordered ' + answers.howMany + ' ' + answers.itemList + '(s) at $' + res[0].Price + '\n');
+            console.log('You have ordered ' + answers.howMany + ' ' + answers.itemList + '(s) at $' + res[productList.indexOf(answers.itemList)].Price + '\n');
             //Shows total amount of purchase
-            // console.log('Your total cost is $' + (res[0].itemList * res[1].howMany));
+            console.log('Your total cost is $' + (answers.howMany * res[productList.indexOf(answers.itemList)].Price));
+            console.log("Thank you for your purchase!");      
             //updates databases
-            connection.query('UPDATE products SET StockQuantity = "' + (res[0].StockQuantity - res[1].howMany) + '" WHERE ProductName = "' + answers.itemList + '"');
+            connection.query('UPDATE products SET StockQuantity = "' + (res[productList.indexOf(answers.itemList)].StockQuantity - answers.howMany) + '" WHERE ProductName = "' + res[productList.indexOf(answers.itemList)].ProductName + '"');
 
         }
     });
